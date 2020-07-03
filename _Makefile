@@ -1,0 +1,23 @@
+.DEFAULT_GOAL := install
+
+help:
+	@echo ""
+	@echo "Available tasks:"
+	@echo "    clean                 		delete file content"
+	@echo "    downlaod                 	        download file"
+	@echo "    execute                 		execute certain task"
+	@echo ""
+
+clean:
+	@echo 'clean triggered'
+	cat /dev/null > dummy.txt
+
+download:
+	@echo "download task triggered"
+	wget https://raw.githubusercontent.com/ahmedfaragmostafa/ipInfo/master/ipInfo.sh
+
+execute:
+	@echo "execute task triggered"
+	sh ipInfo.sh
+
+install: clean download execute
